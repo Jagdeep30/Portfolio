@@ -7,6 +7,7 @@ import Img1 from "./../../assets/myimages/snakeCover2.jpg";
 import Img2 from "./../../assets/myimages/notes2.png";
 import Img3 from "./../../assets/myimages/newss.png";
 import Img4 from "./../../assets/myimages/coffeeTime1.png";
+import Img5 from "./../../assets/myimages/Threads_(app).png";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 
 const projects = [
@@ -37,6 +38,13 @@ const projects = [
 		title: "Coffee Time",
 		github: "https://github.com/Jagdeep30/Coffee-Time.git",
 		demo: "https://coffee-time-omega.vercel.app/",
+	},
+	{
+		id: 5,
+		image: Img5,
+		title: "Friends (Threads Clone)",
+		github: "https://github.com/Jagdeep30/Friends-NextJs.git",
+		demo: "https://friends-next-js.vercel.app/",
 	},
 ];
 

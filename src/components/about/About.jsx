@@ -1,5 +1,5 @@
 import './about.css';
-import ME from './../../assets/me-about.jpg';
+import ME from './../../assets/myimages/IMG_20220427_130700 copy.jpg';
 import {FaAward} from 'react-icons/fa';
 import {FiUsers} from 'react-icons/fi';
 import {VscFolderLibrary} from 'react-icons/vsc';
@@ -13,9 +13,9 @@ const About = ()=>{
                 <div className="container header__container">
                     <h5>Hello I'm</h5>
                     <h1>Jagdeep Singh</h1>
-                    <h5 className='text-light'>
+                    {/* <h5 className='text-light'>
                         FullStack Developer
-                    </h5>
+                    </h5> */}
                     {/* <CTA/> */}
                     <HeaderSocials />
 
