@@ -54,7 +54,7 @@ const About = ()=>{
                         </article>
                     </div> */}
 
-                 <p>3rd – year Computer Science undergraduate student with hands-on experience in MERN stack development and a solid grasp of programming languages like C++ and Java. Aim to actively contribute in a collaborative team with problem solving abilities, adaptability, and effective communication skills.</p>
+                 <p>Final year Computer Science undergraduate student with hands-on experience in backend development and a solid grasp of programming languages like Java. Aim to actively contribute in a collaborative team with problem solving abilities, adaptability, and effective communication skills.</p>
 
                  <CTA/>
 

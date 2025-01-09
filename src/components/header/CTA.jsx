@@ -1,4 +1,4 @@
-import CV from './../../assets/Jagdeep Singh Resume.pdf';
+import CV from './../../assets/Jagdeep Singh Resume Latest.pdf';
 
 const CTA = ()=>{
     return (
