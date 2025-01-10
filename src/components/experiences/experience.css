@@ -1,86 +1,116 @@
+/* General container styles */
 .experience__container {
-	display: grid;
-	grid-template-columns: 1fr;
-	/* gap: 2rem; */
-	justify-items:start;
-}
-
-.experience__container > div {
-	background: var(--color-bg-variant);
-	/* padding: 2.4rem 5rem; */
-	/* padding: 1.8rem 2.3rem; */
-	border-radius: 2rem;
-	border: 1px solid transparent;
-	transition: var(--transition);
-}
-
-.experience__container > div:hover {
-	background: transparent;
-	border-color: var(--color-bg-variant);
-	cursor: default;
-}
-
-.experience__container > div h3 {
-	color: var(--color-primary);
-}
-
-.exp-header{
-	margin-bottom:1rem;
-}
-
-.experience__content {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	row-gap: 1.5rem;
-	column-gap: 2rem;
-}
-
-.experience__details {
-	display: flex;
-	gap: 1rem;
-}
-
-.experience__details-icon {
-	margin-top: 6px;
-	color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .experience {
-	padding: 2.5rem 2.3rem;
-	/* width: 60%; */
-	font-size: 0.9rem;
-	display: flex;
-	flex-direction: column;
-	align-content: flex-start;
-	align-items: flex-start;
+    background: var(--color-bg-variant);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* responsive */
-
-/* medium device */
-@media screen and (max-width: 1024px) {
-	.experience__container {
-		grid-template-columns: 1fr;
-	}
-	.experience__container > div {
-		width: 80%;
-		padding: 2rem;
-		margin: 0 auto;
-	}
-
-	.experience__content {
-		padding: 1rem;
-	}
+.experience:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* small devices */
+/* Header styles */
+.exp-header {
+    margin-bottom: 1rem;
+}
+
+.exp-header h3 {
+    color: var(--color-primary);
+}
+
+/* Content and details alignment */
+.experience__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.experience__details {
+    display: flex;
+    align-items: flex-start; /* Aligns icon and text at the top */
+    gap: 1rem;
+}
+
+.experience__details-icon {
+    font-size: 1rem; /* Smaller icon size */
+    color: var(--color-primary);
+    flex-shrink: 0; /* Prevents icon resizing */
+    margin-top: 0.2rem; /* Aligns icon vertically */
+}
+
+
+/* Highlight styling for key points */
+.highlight {
+    color: var(--color-primary);
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0 0.2rem;
+    border-radius: 0.3rem;
+}
+
+
+/* Skills section styling */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap; /* Enables wrapping of labels */
+    gap: 0.5rem; /* Space between labels */
+    align-items: center; /* Align labels vertically */
+    margin-top: 1rem; /* Adds spacing above the skills section */
+}
+
+.skill-label {
+    background: var(--color-primary);
+    color: var(--color-bg);
+	margin-left: 6px;
+    padding: 0rem 0.4rem; /* Balanced padding for compact labels */
+    border-radius: 0.4rem;
+    font-size: 0.85rem; /* Adjusted font size */
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap; /* Prevents labels from breaking into multiple lines */
+    /* display: inline-block; */
+}
+
+/* General text alignment */
+.experience__details p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-indent: -1.5rem; /* Aligns subsequent lines */
+    padding-left: 1.5rem;
+    display: block; /* Ensures text behaves as a block element */
+    flex-wrap: wrap; /* Allows text and labels to wrap properly */
+}
+
+
+
+
+/* Responsive design for smaller devices */
 @media screen and (max-width: 600px) {
-	.experience__container {
-		gap: 1rem;
-	}
+    .experience {
+        padding: 1rem;
+    }
 
-	.experience__container > div {
-		width: 100%;
-		padding: 2rem 1rem;
-	}
+    .experience__details-icon {
+        font-size: 0.9rem; /* Adjust icon size for smaller screens */
+    }
+
+    .experience__details p {
+        font-size: 0.85rem; /* Adjust text size for readability */
+    }
+
+    .skill-label {
+        font-size: 0.75rem; /* Smaller labels for smaller screens */
+        padding: 0.1rem 0.4rem;
+    }
 }
+

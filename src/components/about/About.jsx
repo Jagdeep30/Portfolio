@@ -1,5 +1,5 @@
 import './about.css';
-import ME from './../../assets/myimages/IMG_20220427_130700 copy.jpg';
+import ME from './../../assets/myimages/img5.jpg';
 import {FaAward} from 'react-icons/fa';
 import {FiUsers} from 'react-icons/fi';
 import {VscFolderLibrary} from 'react-icons/vsc';
