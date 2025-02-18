@@ -8,39 +8,47 @@ import Img2 from "./../../assets/myimages/notes2.png";
 import Img3 from "./../../assets/myimages/newss.png";
 import Img4 from "./../../assets/myimages/coffeeTime1.png";
 import Img5 from "./../../assets/myimages/Threads_(app).png";
+import Img6 from "./../../assets/myimages/video-project.webp";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 
 const projects = [
 	{
 		id: 1,
+		image: Img6,
+		title: "Video Processing Pipeline",
+		github: "https://github.com/Jagdeep30/adaptive-video-streaming",
+		demo: "",
+	},
+	{
+		id: 2,
 		image: Img1,
 		title: "Snake Game",
 		github: "https://github.com/Jagdeep30/Snake-Game.git",
 		demo: "https://snake-game-eta-drab.vercel.app/",
 	},
 	{
-		id: 2,
+		id: 3,
 		image: Img2,
 		title: "Notes App",
 		github: "https://github.com/Jagdeep30/Notes-App---HTML-CSS-JS.git",
 		demo: "https://jagdeep30.github.io/Notes-App---HTML-CSS-JS/",
 	},
 	{
-		id: 3,
+		id: 4,
 		image: Img3,
 		title: "News App",
 		github: "https://github.com/Jagdeep30/News-App.git",
 		demo: "https://github.com/Jagdeep30/News-App.git",
 	},
 	{
-		id: 4,
+		id: 5,
 		image: Img4,
 		title: "Coffee Time",
 		github: "https://github.com/Jagdeep30/Coffee-Time.git",
 		demo: "https://coffee-time-omega.vercel.app/",
 	},
 	{
-		id: 5,
+		id: 6,
 		image: Img5,
 		title: "Friends (Threads Clone)",
 		github: "https://github.com/Jagdeep30/Friends-NextJs.git",
@@ -95,14 +103,14 @@ const Portfolio = () => {
 									>
 										Github
 									</a>
-									<a
+									{ele.demo!="" && <a
 										href={ele.demo}
 										className='btn btn-primary'
 										target='_blank'
 										rel='noreferrer'
 									>
 										Live Demo
-									</a>
+									</a>}
 								</div>
 							</article>
 						</SplideSlide>
