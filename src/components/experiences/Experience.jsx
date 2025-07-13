@@ -260,17 +260,17 @@
 //                                 <span className="highlight">feature bugs</span> and production issues.
 //                             </p>
 //                         </article>
-//                         <article className='experience__details skills'>
+//                         <article className='experience__details'>
 //                             <BsPatchCheckFill className='experience__details-icon' />
-//                             <div className="skills-container">
+//                             <p className="skills-container">
+//                                 <span className="highlight">Skills:</span>
 //                                 <span className="skill-label">Golang</span>
 //                                 <span className="skill-label">Python</span>
-//                                 <span className="skill-label">FastAPI</span>
 //                                 <span className="skill-label">MongoDB</span>
-//                                 <span className="skill-label">Git</span>
-//                                 <span className="skill-label">GitHub</span>
+//                                 <span className="skill-label">FastAPI</span>
 //                                 <span className="skill-label">AWS</span>
-//                             </div>
+//                                 <span className="skill-label">Git/Github</span>
+//                             </p>
 //                         </article>
 //                     </div>
 //                 </div>
@@ -343,12 +343,12 @@ const Experience = () => {
                         </article>
                         <article className='experience__details'>
                             <BsPatchCheckFill className='experience__details-icon' />
-                            <p>
-                                <span className="highlight">Skills:</span> 
-                                <span className="skill-label">Golang</span> 
+                            <p className="skills-container">
+                                <span className="highlight">Skills:</span>
+                                <span className="skill-label">Golang</span>
                                 <span className="skill-label">Python</span>
                                 <span className="skill-label">MongoDB</span>
-                                <span className="skill-label">FastAPI</span> 
+                                <span className="skill-label">FastAPI</span>
                                 <span className="skill-label">AWS</span>
                                 <span className="skill-label">Git/Github</span>
                             </p>

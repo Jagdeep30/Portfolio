@@ -61,23 +61,40 @@
 /* Skills section styling */
 .skills-container {
     display: flex;
-    flex-wrap: wrap; /* Enables wrapping of labels */
-    gap: 0.5rem; /* Space between labels */
-    align-items: center; /* Align labels vertically */
-    margin-top: 1rem; /* Adds spacing above the skills section */
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.7rem;         /* Increased horizontal gap */
+    margin-top: 0.7rem;  /* Increased top margin */
+    margin-left: 0;
+    padding-left: 0;
+    text-indent: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    width: 100%;
+    row-gap: 0.6rem;     /* Increased vertical gap between rows */
 }
 
 .skill-label {
     background: var(--color-primary);
     color: var(--color-bg);
-	margin-left: 6px;
-    padding: 0rem 0.4rem; /* Balanced padding for compact labels */
+    margin-left: 6px;
+    padding: 0rem 0.4rem;
     border-radius: 0.4rem;
-    font-size: 0.85rem; /* Adjusted font size */
+    font-size: 0.85rem;
     font-weight: 500;
-    line-height: 1.2;
-    white-space: nowrap; /* Prevents labels from breaking into multiple lines */
-    /* display: inline-block; */
+    line-height: 2.1;    /* Slightly more vertical space */
+    white-space: normal;
+    max-width: 100%;
+    box-sizing: border-box;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    flex-shrink: 0;
+}
+
+/* Only apply indent and padding to non-skills <p> */
+.experience__details p:not(.skills-container) {
+    text-indent: -1.5rem;
+    padding-left: 1.5rem;
 }
 
 /* General text alignment */
@@ -85,14 +102,9 @@
     margin: 0;
     font-size: 0.9rem;
     line-height: 1.4;
-    text-indent: -1.5rem; /* Aligns subsequent lines */
-    padding-left: 1.5rem;
     display: block; /* Ensures text behaves as a block element */
     flex-wrap: wrap; /* Allows text and labels to wrap properly */
 }
-
-
-
 
 /* Responsive design for smaller devices */
 @media screen and (max-width: 600px) {
@@ -108,8 +120,12 @@
         font-size: 0.85rem; /* Adjust text size for readability */
     }
 
+    .skills-container {
+        gap: 0.3rem;
+        font-size: 0.85rem;
+    }
     .skill-label {
-        font-size: 0.75rem; /* Smaller labels for smaller screens */
+        font-size: 0.75rem;
         padding: 0.1rem 0.4rem;
     }
 }

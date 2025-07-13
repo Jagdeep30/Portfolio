@@ -59,15 +59,17 @@ const projects = [
 const Portfolio = () => {
 
 	const options = {
-		type         : 'loop',
-		perPage:3,
-		focus:'center',
-		// gap          : '1rem',
-		autoplay     : true,
-		pauseOnHover : true,
-		// resetProgress: false,
-		// height       : '15rem',
-	  };
+		type: 'loop',
+		perPage: 3,
+		focus: 'center',
+		autoplay: true,
+		pauseOnHover: true,
+		breakpoints: {
+			915: { // covers 415x915 and similar
+				perPage: 1
+			}
+		}
+	};
 
 	return (
 		<section id='portfolio'>
@@ -84,7 +86,7 @@ const Portfolio = () => {
 		style={{"padding":'0 2rem 0 2rem'}}
       >
         <div style={ { position: 'relative' } }>
-          <SplideTrack>
+          <SplideTrack className={'splide__cont'}>
 
 				{projects.map((ele) => {
 					return (
@@ -97,20 +99,22 @@ const Portfolio = () => {
 								<div className='portfolio__item-cta'>
 									<a
 										href={ele.github}
-										className='btn'
+										className={`btn${!ele.demo ? ' single-btn' : ''}`}
 										target='_blank'
 										rel='noreferrer'
 									>
 										Github
 									</a>
-									{ele.demo!="" && <a
-										href={ele.demo}
-										className='btn btn-primary'
-										target='_blank'
-										rel='noreferrer'
-									>
-										Live Demo
-									</a>}
+									{ele.demo !== "" && (
+										<a
+											href={ele.demo}
+											className='btn btn-primary'
+											target='_blank'
+											rel='noreferrer'
+										>
+											Live Demo
+										</a>
+									)}
 								</div>
 							</article>
 						</SplideSlide>
