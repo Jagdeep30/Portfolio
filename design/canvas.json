@@ -1,0 +1,26 @@
+{
+  "pages": [
+    { "id": "page-1", "name": "Portfolio" },
+    { "id": "page-2", "name": "Explorations" }
+  ],
+  "artboards": [
+    { "file": "Main.dc.html",  "title": "Dark",  "page": "page-1", "x": 0,    "y": 0, "w": 1440, "h": 2240 },
+    { "file": "Light.dc.html", "title": "Light", "page": "page-1", "x": 1560, "y": 0, "w": 1440, "h": 2240 },
+
+    { "file": "D1.dc.html",         "title": "D1 — Column, refined", "page": "page-2", "x": 0,    "y": 0,    "w": 1440, "h": 2150 },
+    { "file": "D2.dc.html",         "title": "D2 — Indexed Rail",    "page": "page-2", "x": 1560, "y": 0,    "w": 1440, "h": 2050 },
+    { "file": "D3.dc.html",         "title": "D3 — The Ledger",      "page": "page-2", "x": 0,    "y": 2560, "w": 1440, "h": 1980 },
+    { "file": "DirectionA.dc.html", "title": "A — Terminal Index",   "page": "page-2", "x": 1560, "y": 2560, "w": 1440, "h": 1720 },
+    { "file": "DirectionB.dc.html", "title": "B — Editorial Press",  "page": "page-2", "x": 0,    "y": 4800, "w": 1440, "h": 1900 },
+    { "file": "DirectionC.dc.html", "title": "C — Dark Product",     "page": "page-2", "x": 1560, "y": 4800, "w": 1440, "h": 1900 },
+    { "file": "DirectionD.dc.html", "title": "D — Reading Column",   "page": "page-2", "x": 0,    "y": 6900, "w": 1440, "h": 1750 }
+  ],
+  "annotations": [
+    { "id": "note-final", "page": "page-1", "x": 0, "y": -320, "w": 1200, "text": "THE DESIGN — C+D dark column, in both themes.\nOne 660px serif reading column on a floating pill nav. Work as a dated log, projects as soft panels (no image slots — nothing can look like a missing screenshot), writing, then a contact card.\nType: Newsreader for reading, JetBrains Mono for every piece of metadata. The whole design is those two faces and one accent." },
+    { "id": "note-dark", "page": "page-1", "x": 0, "y": 2300, "w": 800, "text": "DARK — the default.\nGround #0a0a0b, panels lifted one step to #101012, hairlines at #1c1c20. Accent mint #7dd3a7 carries the status dot, the italic clause in the intro, and every link hover.\nSerif at weight 300 is what keeps this from reading like every other dark dev portfolio." },
+    { "id": "note-light", "page": "page-1", "x": 1560, "y": 2300, "w": 800, "text": "LIGHT — not an inversion, a counterpart.\nWarm paper #fbfaf8 rather than white, panels go pure white and gain a 1px shadow (on dark they were lifted by lightness, which does nothing on paper).\nThe accent shifts to #2e7d5b — same hue as the mint, dropped in lightness so it passes contrast on paper. A pale mint on white would be unreadable." },
+    { "id": "note-next", "page": "page-1", "x": 0, "y": 2680, "w": 1200, "text": "Copy in [SQUARE BRACKETS] is still placeholder — that is the next conversation. Project names and stacks are real, from your repo.\nAssumption I am building on: the site follows the visitor's system theme on first load, and the toggle remembers their choice after that. Say the word if you would rather it always open dark.\nNext: Next.js + Tailwind + TS scaffold on the redesign/v2 branch, built from these two artboards as the source of truth." },
+    { "id": "note-archive", "page": "page-2", "x": 0, "y": -230, "w": 900, "text": "ARCHIVE — everything we looked at on the way here. Nothing on this page is being built.\nTop row: the three developed takes on the reading column (D1 refined, D2 indexed rail, D3 the ledger).\nBelow: the original four directions from round one." }
+  ],
+  "launch": { "view": "canvas", "page": "page-1" }
+}

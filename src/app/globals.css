@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ---- Light: warm paper. Panels sit above the ground by shadow, not lightness. ---- */
+:root {
+  color-scheme: light;
+  --c-bg: #fbfaf8;
+  --c-panel: #ffffff;
+  --c-elevated: #f0efeb;
+  --c-border: #e4e2dc;
+  --c-hairline: #e9e7e1;
+  --c-rule: #eeece6;
+  --c-fg: #16171a;
+  --c-muted: #63656b;
+  --c-faint: #9a9ca1;
+  --c-ghost: #b0b2b6;
+  --c-accent: #2e7d5b;
+  --c-underline: #cfd2cd;
+  --c-panel-shadow: 0 1px 2px rgba(20, 20, 25, 0.045);
+  --c-nav-shadow: 0 1px 3px rgba(20, 20, 25, 0.05);
+}
+
+/* ---- Dark: panels lift by lightness instead, and the accent rises to stay legible. ---- */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --c-bg: #0a0a0b;
+  --c-panel: #101012;
+  --c-elevated: #1d1d21;
+  --c-border: #212126;
+  --c-hairline: #1c1c20;
+  --c-rule: #17171a;
+  --c-fg: #ededef;
+  --c-muted: #8a8a93;
+  --c-faint: #55555e;
+  --c-ghost: #45454d;
+  --c-accent: #7dd3a7;
+  --c-underline: #33333a;
+  --c-panel-shadow: none;
+  --c-nav-shadow: none;
+}
+
+@theme inline {
+  --color-bg: var(--c-bg);
+  --color-panel: var(--c-panel);
+  --color-elevated: var(--c-elevated);
+  --color-edge: var(--c-border);
+  --color-hairline: var(--c-hairline);
+  --color-rule: var(--c-rule);
+  --color-fg: var(--c-fg);
+  --color-muted: var(--c-muted);
+  --color-faint: var(--c-faint);
+  --color-ghost: var(--c-ghost);
+  --color-accent: var(--c-accent);
+  --color-underline: var(--c-underline);
+  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --shadow-panel: var(--c-panel-shadow);
+  --shadow-nav: var(--c-nav-shadow);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--c-bg);
+    color: var(--c-fg);
+    font-family: var(--font-newsreader), Georgia, serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--c-accent) 28%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+}
+
+/* ---- Balanced motion: one reveal on entry, nothing that repeats or chases the cursor. ---- */
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal[data-shown="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
