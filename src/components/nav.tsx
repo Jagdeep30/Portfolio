@@ -66,8 +66,9 @@ export function Nav() {
   }, []);
 
   return (
-    <div className="sticky top-0 z-50 flex justify-center px-4 pt-6 pb-3 sm:pt-[30px]">
-      <nav className="flex items-center gap-1.5 rounded-full border border-edge bg-panel p-[7px] font-mono shadow-nav">
+    <div className="sticky top-0 z-50 flex justify-center px-3 pt-4 pb-3 sm:px-4 sm:pt-[30px]">
+      {/* Fluid pill on phones so it can never be clipped; intrinsic width from sm up. */}
+      <nav className="flex w-full items-center justify-between gap-0.5 rounded-full border border-edge bg-panel p-1.5 font-mono shadow-nav sm:w-auto sm:justify-start sm:gap-1.5 sm:p-[7px]">
         {links.map((link) => {
           const isActive = active === link.href;
           return (
@@ -75,7 +76,7 @@ export function Nav() {
               key={link.href}
               href={link.href}
               aria-current={isActive ? "true" : undefined}
-              className={`rounded-full px-3 py-2 text-[12px] tracking-[0.04em] transition-colors sm:px-[15px] ${
+              className={`rounded-full px-2 py-3 text-[11.5px] tracking-[0.04em] transition-colors sm:px-[15px] sm:py-2 sm:text-[12px] ${
                 isActive ? "bg-elevated text-fg" : "text-muted hover:text-fg"
               }`}
             >
@@ -83,7 +84,7 @@ export function Nav() {
             </a>
           );
         })}
-        <span className="mx-[3px] h-[18px] w-px bg-edge" aria-hidden="true" />
+        <span className="mx-[3px] hidden h-[18px] w-px bg-edge sm:block" aria-hidden="true" />
         <ThemeToggle />
       </nav>
     </div>
