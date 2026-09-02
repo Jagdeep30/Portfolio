@@ -22,7 +22,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label="Toggle colour theme"
-      className="flex size-8 items-center justify-center rounded-full text-muted transition-colors hover:text-fg"
+      className="flex size-10 shrink-0 items-center justify-center rounded-full text-muted transition-colors hover:text-fg sm:size-8"
     >
       <svg
         viewBox="0 0 24 24"
