@@ -13,10 +13,13 @@ export function Work() {
   }
 
   return (
-    <section id="work" className="flex scroll-mt-24 flex-col gap-[18px] pt-[76px] sm:pt-[92px]">
+    <section
+      id="work"
+      className="relative left-1/2 flex w-[min(1000px,calc(100vw-48px))] -translate-x-1/2 scroll-mt-24 flex-col gap-[18px] pt-[76px] sm:pt-[92px]"
+    >
       <SectionHeading>Selected work</SectionHeading>
 
-      <div className="relative left-1/2 flex w-[min(1000px,calc(100vw-48px))] -translate-x-1/2 flex-col gap-3">
+      <div className="flex flex-col gap-3">
         {rows.map((row, r) => (
           <WorkRow key={r} systems={row} start={r * 2} defaultOpen={r % 2} />
         ))}

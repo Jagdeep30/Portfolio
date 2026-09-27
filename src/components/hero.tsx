@@ -17,6 +17,37 @@ export function Hero() {
       <p className="text-pretty text-[17px] leading-[1.76] text-muted sm:text-[18.5px] sm:leading-[1.78]">
         {site.intro.body}
       </p>
+
+      <div className="flex flex-wrap items-center gap-2 font-mono text-[12px] tracking-[0.04em]">
+        <a
+          href={site.resume}
+          target="_blank"
+          rel="noreferrer"
+          className="rounded-full bg-fg px-4 py-2 text-bg transition-opacity hover:opacity-85"
+        >
+          Résumé ↗
+        </a>
+        {[
+          { href: site.github, label: "GitHub" },
+          { href: site.linkedin, label: "LinkedIn" },
+        ].map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full border border-edge px-4 py-2 text-muted transition-colors hover:border-faint hover:text-fg"
+          >
+            {link.label} ↗
+          </a>
+        ))}
+        <a
+          href={`mailto:${site.email}`}
+          className="rounded-full border border-edge px-4 py-2 text-muted transition-colors hover:border-faint hover:text-fg"
+        >
+          Email
+        </a>
+      </div>
     </section>
   );
 }

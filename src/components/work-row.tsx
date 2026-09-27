@@ -81,7 +81,7 @@ export function WorkRow({
           {/* Decorative: everything it shows is already in the text beside it. */}
           <div
             aria-hidden="true"
-            className="flex h-[220px] items-center justify-center overflow-hidden rounded-xl border border-hairline bg-bg [background-image:radial-gradient(var(--c-border)_1px,transparent_1px)] [background-size:14px_14px] lg:ml-6 lg:h-auto lg:min-w-0 lg:flex-1 lg:translate-x-3 lg:opacity-0 lg:transition-[opacity,translate] lg:duration-500 lg:group-data-[open=true]/card:translate-x-0 lg:group-data-[open=true]/card:opacity-100 lg:group-data-[open=true]/card:delay-200"
+            className="flex h-[220px] items-center justify-center overflow-hidden rounded-xl border border-hairline bg-bg [background-image:radial-gradient(var(--c-border)_1px,transparent_1px)] [background-size:14px_14px] lg:ml-6 lg:h-auto lg:min-w-0 lg:flex-1 lg:invisible lg:translate-x-3 lg:opacity-0 lg:transition-[opacity,translate,visibility] lg:duration-500 lg:group-data-[open=true]/card:visible lg:group-data-[open=true]/card:translate-x-0 lg:group-data-[open=true]/card:opacity-100 lg:group-data-[open=true]/card:delay-200"
           >
             <Visual kind={system.visual} />
           </div>
