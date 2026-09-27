@@ -16,6 +16,7 @@
   --c-faint: #9a9ca1;
   --c-ghost: #b0b2b6;
   --c-accent: #2e7d5b;
+  --c-warn: #b4532a;
   --c-underline: #cfd2cd;
   --c-panel-shadow: 0 1px 2px rgba(20, 20, 25, 0.045);
   --c-nav-shadow: 0 1px 3px rgba(20, 20, 25, 0.05);
@@ -35,6 +36,7 @@
   --c-faint: #55555e;
   --c-ghost: #45454d;
   --c-accent: #7dd3a7;
+  --c-warn: #e0896f;
   --c-underline: #33333a;
   --c-panel-shadow: none;
   --c-nav-shadow: none;
@@ -52,6 +54,7 @@
   --color-faint: var(--c-faint);
   --color-ghost: var(--c-ghost);
   --color-accent: var(--c-accent);
+  --color-warn: var(--c-warn);
   --color-underline: var(--c-underline);
   --font-serif: var(--font-newsreader), Georgia, serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -101,6 +104,15 @@
   }
 }
 
+/* A work card reached from an Experience link rings once in the accent, then settles. */
+@keyframes target-flash {
+  0%,
+  35% {
+    border-color: var(--c-accent);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--c-accent) 18%, transparent);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -110,6 +122,10 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .packet {
+    display: none;
   }
 
   *,

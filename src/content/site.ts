@@ -3,10 +3,16 @@ export type WorkEntry = {
   title: string;
   org?: string;
   note: string;
+  /** Ids of the systems built in this role; each renders as a link down to its card. */
+  systems?: string[];
 };
 
 export type System = {
+  /** Anchor for the card, linked to from Experience. */
+  id: string;
   name: string;
+  /** Name as it appears in Experience's links. */
+  short: string;
   context: string;
   /** One line: what it is. Read on its own if nothing else is. */
   summary: string;
@@ -49,12 +55,14 @@ export const site = {
       title: "Backend Developer",
       org: "Superalign",
       note: "Log infrastructure, document intelligence and AI governance — plus the bare-metal that runs them. Hyderabad.",
+      systems: ["logtrim", "uws", "core-v1", "infrastructure"],
     },
     {
       period: "2024 — 25",
       title: "Backend Engineering Intern",
       org: "Sequoia Consulting Group",
       note: "Compensation tooling and notification infrastructure for 20+ client teams. Bangalore.",
+      systems: ["compensation"],
     },
     {
       period: "2021 — 25",
@@ -66,7 +74,9 @@ export const site = {
 
   systems: [
     {
+      id: "logtrim",
       name: "LogTrim",
+      short: "LogTrim",
       visual: "pipeline",
       context: "SUPERALIGN · 2025",
       summary: "An end-to-end log processing pipeline written in Rust.",
@@ -78,7 +88,9 @@ export const site = {
       tags: ["Rust", "Tokio", "Axum", "Fluvio", "Kubernetes"],
     },
     {
+      id: "uws",
       name: "UWS — Document Intelligence",
+      short: "UWS",
       visual: "documents",
       context: "SUPERALIGN · CLIENT PROJECT",
       summary: "An AI backend that pulls structured data out of identity and financial documents.",
@@ -89,7 +101,9 @@ export const site = {
       tags: ["Python", "FastAPI", "PostgreSQL", "GCS", "Gemini API"],
     },
     {
+      id: "core-v1",
       name: "Core V1 — AI Governance",
+      short: "Core V1",
       visual: "governance",
       context: "SUPERALIGN · 2025",
       summary: "A platform for enforcing compliance policy across AI models and datasets.",
@@ -100,7 +114,9 @@ export const site = {
       tags: ["Python", "FastAPI", "SurrealDB"],
     },
     {
+      id: "infrastructure",
       name: "Infrastructure & Internal Tooling",
+      short: "Infrastructure",
       visual: "services",
       context: "SUPERALIGN · ONGOING",
       summary: "The bare-metal that runs the company’s internal services, and everything on it.",
@@ -111,7 +127,9 @@ export const site = {
       tags: ["Proxmox", "Coolify", "Cloudflare", "Authentik", "Docker"],
     },
     {
+      id: "compensation",
       name: "Compensation Tooling",
+      short: "Compensation tooling",
       visual: "notifications",
       context: "SEQUOIA · 2024 — 25",
       summary: "Merit-cycle tooling and notification infrastructure for 20+ client teams.",
@@ -122,7 +140,9 @@ export const site = {
       tags: ["Python", "Go", "MongoDB", "Redis", "AWS"],
     },
     {
+      id: "video-streaming",
       name: "Adaptive Video Streaming",
+      short: "Video streaming",
       visual: "transcode",
       context: "PERSONAL · 2024",
       href: "https://github.com/Jagdeep30/adaptive-video-streaming",

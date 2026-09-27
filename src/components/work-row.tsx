@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { System } from "@/content/site";
 import { Visual } from "./work-visuals";
 
@@ -20,16 +20,28 @@ export function WorkRow({
 }) {
   const [open, setOpen] = useState(defaultOpen);
 
+  // Arriving from an Experience link (#logtrim etc.) opens that card in its row.
+  useEffect(() => {
+    function sync() {
+      const i = systems.findIndex((system) => `#${system.id}` === window.location.hash);
+      if (i >= 0) setOpen(i);
+    }
+    sync();
+    window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
+  }, [systems]);
+
   return (
     <div className="flex flex-col gap-3 lg:flex-row">
       {systems.map((system, i) => (
         <article
           key={system.name}
+          id={system.id}
           data-open={open === i}
           onMouseEnter={() => setOpen(i)}
           onFocus={() => setOpen(i)}
           onClick={() => setOpen(i)}
-          className="group/card relative flex flex-col gap-6 overflow-hidden rounded-2xl border border-hairline bg-panel p-6 shadow-panel transition-[border-color,flex-grow] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] data-[open=true]:border-edge lg:basis-0 lg:grow lg:flex-row lg:gap-0 lg:data-[open=true]:grow-[2.1]"
+          className="group/card relative flex scroll-mt-28 target:animate-[target-flash_1.8s_ease-out] flex-col gap-6 overflow-hidden rounded-2xl border border-hairline bg-panel p-6 shadow-panel transition-[border-color,flex-grow] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] data-[open=true]:border-edge lg:basis-0 lg:grow lg:flex-row lg:gap-0 lg:data-[open=true]:grow-[2.1]"
         >
           <div className="flex flex-col lg:w-[264px] lg:shrink-0">
             <div className="flex items-center gap-3 font-mono text-[10.5px] tracking-[0.12em] text-faint">

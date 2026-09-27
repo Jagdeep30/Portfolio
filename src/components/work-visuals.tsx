@@ -42,6 +42,14 @@ function Pipeline() {
         );
       })}
 
+      {[0, 1, 2, 3, 4].map((r) => {
+        const y = 12 + r * 34;
+        return (
+          <Packet key={r} path={`M58 ${y + 10} C 78 ${y + 10}, 78 90, 96 90`} dur={1.6} begin={r * 0.37} />
+        );
+      })}
+      <Packet path="M200 90 H 214" dur={0.9} begin={0.4} gap={1.1} />
+
       <rect x="96" y="62" width="104" height="56" rx="9" className="fill-panel stroke-accent" />
       <text x="148" y="87" textAnchor="middle" className="fill-fg text-[11px]">
         logtrim
@@ -230,6 +238,19 @@ function Transcode() {
         );
       })}
 
+      {renditions.map((name, i) => {
+        const y = 24 + i * 50;
+        return (
+          <Packet
+            key={name}
+            path={`M66 90 C 84 90, 84 ${y + 11}, 100 ${y + 11} H 164 C 180 ${y + 11}, 180 90, 196 90`}
+            dur={2.4}
+            begin={i * 0.2}
+            gap={0.8}
+          />
+        );
+      })}
+
       <rect x="0.5" y="78" width="66" height="24" rx="5" className={box} />
       <text x="33.5" y="93.5" textAnchor="middle" className={label}>
         upload.mp4
@@ -240,6 +261,36 @@ function Transcode() {
         master.m3u8
       </text>
     </svg>
+  );
+}
+
+/**
+ * A dot travelling a path on a loop: `dur` seconds moving, then `gap` seconds hidden.
+ * Hidden entirely under prefers-reduced-motion (see globals.css).
+ */
+function Packet({ path, dur, begin, gap = 0 }: { path: string; dur: number; begin: number; gap?: number }) {
+  const total = dur + gap;
+  const end = dur / total;
+  return (
+    <circle r="2.2" className="packet fill-accent" opacity="0">
+      <animateMotion
+        path={path}
+        dur={`${total}s`}
+        begin={`${begin}s`}
+        repeatCount="indefinite"
+        keyPoints="0;1;1"
+        keyTimes={`0;${end.toFixed(3)};1`}
+        calcMode="linear"
+      />
+      <animate
+        attributeName="opacity"
+        values="0;1;1;0;0"
+        keyTimes={`0;${(end * 0.1).toFixed(3)};${(end * 0.85).toFixed(3)};${end.toFixed(3)};1`}
+        dur={`${total}s`}
+        begin={`${begin}s`}
+        repeatCount="indefinite"
+      />
+    </circle>
   );
 }
 
