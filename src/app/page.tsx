@@ -7,6 +7,7 @@ import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { Reveal } from "@/components/reveal";
 import { Terminal } from "@/components/terminal";
+import { Incident } from "@/components/incident";
 import { site } from "@/content/site";
 
 /** Tells search engines this page is about a person, and where else they can be found. */
@@ -52,6 +53,7 @@ export default function Home() {
         <Footer />
       </main>
       <Terminal />
+      <Incident />
     </>
   );
 }

@@ -1,24 +1,65 @@
 "use client";
 
+import { useRef } from "react";
+
+type Theme = "light" | "dark";
+
+/**
+ * Switches theme and remembers it. Where the browser supports view transitions,
+ * the new theme spreads out as a circle from `origin` (the toggle, usually).
+ */
+export function setTheme(next: Theme, origin?: { x: number; y: number }) {
+  const root = document.documentElement;
+  const apply = () => {
+    root.setAttribute("data-theme", next);
+    try {
+      localStorage.setItem("theme", next);
+    } catch {
+      /* Safari private mode and friends — the switch still holds for this visit. */
+    }
+  };
+
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!document.startViewTransition || reduced) {
+    apply();
+    return;
+  }
+
+  const x = origin?.x ?? window.innerWidth / 2;
+  const y = origin?.y ?? 0;
+  const radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+
+  document.startViewTransition(apply).ready.then(() => {
+    root.animate(
+      { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+      { duration: 550, easing: "cubic-bezier(0.16, 1, 0.3, 1)", pseudoElement: "::view-transition-new(root)" },
+    );
+  });
+}
+
+export function currentTheme(): Theme {
+  return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+}
+
 /**
  * The icon swap is pure CSS, keyed off the `data-theme` attribute the inline
  * script in the layout sets before first paint — so the correct icon is on
  * screen immediately, with no hydration flash.
  */
 export function ThemeToggle() {
+  const button = useRef<HTMLButtonElement>(null);
+
   function toggle() {
-    const root = document.documentElement;
-    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    try {
-      localStorage.setItem("theme", next);
-    } catch {
-      /* Safari private mode and friends — the toggle still works for this visit. */
-    }
+    const rect = button.current?.getBoundingClientRect();
+    setTheme(
+      currentTheme() === "dark" ? "light" : "dark",
+      rect ? { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 } : undefined,
+    );
   }
 
   return (
     <button
+      ref={button}
       type="button"
       onClick={toggle}
       aria-label="Toggle colour theme"

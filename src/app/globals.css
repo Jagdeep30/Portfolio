@@ -105,6 +105,18 @@
   }
 }
 
+/* The theme switch reveals itself as a circle (see setTheme); no default crossfade under it. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Konami code: the accent goes to alarm colours until the incident resolves. */
+[data-incident] {
+  --c-accent: var(--c-warn);
+}
+
 /* A work card reached from an Experience link rings once in the accent, then settles. */
 @keyframes target-flash {
   0%,

@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { site } from "@/content/site";
+import { currentTheme, setTheme } from "./theme-toggle";
 
 type Line = { kind: "in" | "out" | "err"; text: string };
 
@@ -21,9 +22,29 @@ const COMMANDS: Record<string, string> = {
   linkedin: "open LinkedIn",
   theme: "toggle light / dark",
   date: "my local time",
+  neofetch: "system info, of a sort",
+  fortune: "engineering wisdom",
+  ping: "check I'm reachable",
+  uptime: "how long I've been running",
+  history: "what you've typed",
+  "cat readme": "about this site",
   clear: "clear the screen",
   exit: "close the terminal",
 };
+
+const FORTUNES = [
+  "It's always DNS.",
+  "The fastest log line is the one you never send.",
+  "Two hard problems: cache invalidation, naming things, and off-by-one errors.",
+  "Retry with backoff. Then back off from the retries.",
+  "Every system is eventually consistent if you wait long enough.",
+  "Works on my machine. Shipping the machine.",
+  "Premature optimisation is the root of some evil. Measured optimisation is Tuesday.",
+  "A queue is a promise you'll deal with it later.",
+];
+
+// Plain ASCII: block glyphs fall back to wider fonts and break the columns.
+const LOGO = ["      _ ", "     | |", "  _  | |", " | |_| |", "  \\___/ "];
 
 let greeted = false;
 
@@ -75,7 +96,8 @@ export function Terminal() {
       greeted = true;
       console.log(
         "%c›_ %cHi — you opened the console, so you're my kind of person.\n%cPress ` on the page for a terminal, or write to " +
-          site.email,
+          site.email +
+          ". And ↑↑↓↓←→←→BA, if you're feeling nostalgic.",
         "color:#7dd3a7;font:600 14px monospace",
         "font:14px monospace",
         "color:#8a8a93;font:12px monospace",
@@ -162,15 +184,8 @@ export function Terminal() {
         break;
       }
       case "theme": {
-        const root = document.documentElement;
-        const next =
-          arg === "light" || arg === "dark" ? arg : root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-        root.setAttribute("data-theme", next);
-        try {
-          localStorage.setItem("theme", next);
-        } catch {
-          /* The switch still holds for this visit. */
-        }
+        const next = arg === "light" || arg === "dark" ? arg : currentTheme() === "dark" ? "light" : "dark";
+        setTheme(next);
         say(`theme: ${next}`);
         break;
       }
@@ -183,6 +198,46 @@ export function Terminal() {
             minute: "2-digit",
           }) + " in Hyderabad",
         );
+        break;
+      case "neofetch": {
+        const info = [
+          `visitor@${site.name.split(" ")[0].toLowerCase()}`,
+          "-----------------",
+          `role      ${site.role}`,
+          `host      ${site.work[0].org}`,
+          `location  ${site.location}`,
+          `uptime    since 2024`,
+          `langs     ${site.toolkit[0].items.join(", ")}`,
+          `shell     zsh, allegedly`,
+          `theme     ${currentTheme()}`,
+          `font      IBM Plex`,
+        ];
+        info.forEach((row, i) => say(`${(LOGO[i] ?? "").padEnd(12)}${row}`));
+        break;
+      }
+      case "fortune":
+        say(FORTUNES[Math.floor(Math.random() * FORTUNES.length)]);
+        break;
+      case "ping":
+        say(`PING ${site.email}: 56 data bytes`);
+        say("64 bytes: icmp_seq=0 ttl=64 time=< 1 day");
+        say("1 packet transmitted, 1 received. try 'contact'");
+        break;
+      case "uptime":
+        say(`up since 2024 · ${site.work.length - 1} jobs · 0 unplanned outages (that you know of)`);
+        break;
+      case "history":
+        if (history.current.length === 0) say("nothing yet");
+        history.current.forEach((cmd, i) => say(`${String(i + 1).padStart(4)}  ${cmd}`));
+        break;
+      case "cat":
+        if (arg.toLowerCase().startsWith("readme")) {
+          say("Built with Next.js, React and Tailwind, written in TypeScript.");
+          say("Set in IBM Plex. No trackers, no cookies.");
+          say("Psst — the Konami code does something.");
+        } else {
+          say(arg ? `cat: ${arg}: no such file — try 'cat readme'` : "usage: cat readme", "err");
+        }
         break;
       case "echo":
         say(arg);
