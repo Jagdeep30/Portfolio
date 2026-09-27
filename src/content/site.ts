@@ -28,7 +28,7 @@ export const site = {
   role: "Backend Engineer",
   location: "Hyderabad, India",
   timezone: "UTC+5:30",
-  status: "Building backend and data platforms at Aztlan",
+  status: "Building backend and data platforms at Superalign",
 
   email: "jagdeepsingh1630@gmail.com",
   github: "https://github.com/Jagdeep30",
@@ -40,14 +40,14 @@ export const site = {
     accent: "the infrastructure they run on",
     tail: ".",
     body:
-      "Since 2024 I’ve shipped a Rust log pipeline moving 20,000+ events a second, an AI backend that reads identity and financial documents, a compliance-governance platform, and the bare-metal running a dozen internal services — at Aztlan now, at Sequoia Consulting Group before that. Rust and Python mostly, with Go and Node where they fit better.",
+      "Since 2024 I’ve shipped a Rust log pipeline moving 20,000+ events a second, an AI backend that reads identity and financial documents, a compliance-governance platform, and the bare-metal running a dozen internal services — at Superalign now, at Sequoia Consulting Group before that. Rust and Python mostly, with Go and Node where they fit better.",
   },
 
   work: [
     {
-      period: "2025 —",
+      period: "2025 — Present",
       title: "Backend Developer",
-      org: "Aztlan",
+      org: "Superalign",
       note: "Log infrastructure, document intelligence and AI governance — plus the bare-metal that runs them. Hyderabad.",
     },
     {
@@ -68,7 +68,7 @@ export const site = {
     {
       name: "LogTrim",
       visual: "pipeline",
-      context: "AZTLAN · 2025",
+      context: "SUPERALIGN · 2025",
       summary: "An end-to-end log processing pipeline written in Rust.",
       highlights: [
         "Handles 20,000+ events per second across five integrated applications.",
@@ -80,7 +80,7 @@ export const site = {
     {
       name: "UWS — Document Intelligence",
       visual: "documents",
-      context: "AZTLAN · CLIENT PROJECT",
+      context: "SUPERALIGN · CLIENT PROJECT",
       summary: "An AI backend that pulls structured data out of identity and financial documents.",
       highlights: [
         "Extracts fields from Aadhaar, PAN, US IDs, payslips and bank statements.",
@@ -91,7 +91,7 @@ export const site = {
     {
       name: "Core V1 — AI Governance",
       visual: "governance",
-      context: "AZTLAN · 2025",
+      context: "SUPERALIGN · 2025",
       summary: "A platform for enforcing compliance policy across AI models and datasets.",
       highlights: [
         "Teams define NIST and ISO policies, then group models and datasets into governed use cases.",
@@ -102,7 +102,7 @@ export const site = {
     {
       name: "Infrastructure & Internal Tooling",
       visual: "services",
-      context: "AZTLAN · ONGOING",
+      context: "SUPERALIGN · ONGOING",
       summary: "The bare-metal that runs the company’s internal services, and everything on it.",
       highlights: [
         "10+ services deployed and maintained — GlitchTip, Uptime Kuma, Outline, Docmost, Postiz, Papra, Unleash.",

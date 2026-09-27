@@ -16,7 +16,7 @@ const personSchema = {
   jobTitle: site.role,
   email: `mailto:${site.email}`,
   address: { "@type": "PostalAddress", addressLocality: "Hyderabad", addressCountry: "IN" },
-  worksFor: { "@type": "Organization", name: "Aztlan" },
+  worksFor: { "@type": "Organization", name: "Superalign" },
   alumniOf: { "@type": "CollegeOrUniversity", name: "Chitkara University" },
   sameAs: [site.github, site.linkedin],
 };
