@@ -13,7 +13,7 @@ export function Experience() {
             className="grid grid-cols-1 items-baseline gap-x-5 gap-y-[5px] border-b border-rule py-5 sm:grid-cols-[106px_1fr]"
           >
             <span className="font-mono text-[11.5px] text-faint">{entry.period}</span>
-            <h3 className="text-[19px] sm:text-[20px]">
+            <h3 className="text-[17px] font-medium tracking-[-0.01em] sm:text-[18px]">
               {entry.title}
               {entry.org ? (
                 <>
@@ -23,7 +23,7 @@ export function Experience() {
               ) : null}
             </h3>
             <span className="hidden sm:block" aria-hidden="true" />
-            <p className="text-[16px] leading-[1.72] text-muted sm:text-[16.5px]">{entry.note}</p>
+            <p className="text-[15px] leading-[1.7] text-muted sm:text-[15.5px]">{entry.note}</p>
             {entry.systems ? (
               <>
                 <span className="hidden sm:block" aria-hidden="true" />

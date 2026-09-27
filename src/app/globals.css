@@ -56,8 +56,9 @@
   --color-accent: var(--c-accent);
   --color-warn: var(--c-warn);
   --color-underline: var(--c-underline);
-  --font-serif: var(--font-newsreader), Georgia, serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: var(--font-plex-sans), system-ui, sans-serif;
+  --font-serif: var(--font-plex-serif), Georgia, serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
   --shadow-panel: var(--c-panel-shadow);
   --shadow-nav: var(--c-nav-shadow);
 }
@@ -71,8 +72,8 @@
   body {
     background-color: var(--c-bg);
     color: var(--c-fg);
-    font-family: var(--font-newsreader), Georgia, serif;
-    font-weight: 300;
+    font-family: var(--font-plex-sans), system-ui, sans-serif;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }

@@ -8,13 +8,13 @@ export function Hero() {
         {site.status}
       </p>
 
-      <h1 className="text-pretty text-[27px] leading-[1.42] tracking-[-0.018em] sm:text-[34px] sm:leading-[1.44]">
+      <h1 className="text-pretty text-[25px] leading-[1.38] tracking-[-0.025em] sm:text-[31px] sm:leading-[1.36]">
         {site.intro.lead}
-        <em className="text-accent">{site.intro.accent}</em>
+        <em className="font-serif font-light text-accent">{site.intro.accent}</em>
         {site.intro.tail}
       </h1>
 
-      <p className="text-pretty text-[17px] leading-[1.76] text-muted sm:text-[18.5px] sm:leading-[1.78]">
+      <p className="text-pretty text-[16px] leading-[1.75] text-muted sm:text-[17px]">
         {site.intro.body}
       </p>
 

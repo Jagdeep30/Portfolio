@@ -50,7 +50,7 @@ export function WorkRow({
               <span className="truncate">{system.context}</span>
             </div>
 
-            <h3 className="mt-4 text-[21px] leading-[1.3] tracking-[-0.01em]">
+            <h3 className="mt-4 text-[19px] leading-[1.3] font-medium tracking-[-0.015em]">
               {system.href ? (
                 <a
                   href={system.href}
@@ -67,11 +67,11 @@ export function WorkRow({
                 system.name
               )}
             </h3>
-            <p className="mt-1.5 text-pretty text-[16px] leading-[1.6] text-muted">{system.summary}</p>
+            <p className="mt-1.5 text-pretty text-[15px] leading-[1.6] text-muted">{system.summary}</p>
 
             <ul className="mt-4 flex flex-col gap-1.5">
               {system.highlights.map((highlight) => (
-                <li key={highlight} className="flex gap-2.5 text-[14.5px] leading-[1.6] text-muted">
+                <li key={highlight} className="flex gap-2.5 text-[13.5px] leading-[1.62] text-muted">
                   <span className="mt-[11px] h-px w-2 shrink-0 bg-faint" aria-hidden="true" />
                   <span>{highlight}</span>
                 </li>
