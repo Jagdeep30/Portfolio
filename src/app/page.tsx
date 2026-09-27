@@ -28,6 +28,11 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
+      {/* The same dot grid the work diagrams sit on, fading out below the hero. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[720px] [background-image:radial-gradient(var(--c-border)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)]"
+      />
       <Nav />
       <main className="mx-auto w-full max-w-[660px] px-6 pb-24 sm:pb-[120px]">
         <Hero />
