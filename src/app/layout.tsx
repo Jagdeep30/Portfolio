@@ -1,20 +1,28 @@
 import type { Metadata, Viewport } from "next";
-import { Newsreader, JetBrains_Mono } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans, IBM_Plex_Serif } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const newsreader = Newsreader({
+const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-newsreader",
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
+  variable: "--font-plex-sans",
+  weight: ["400", "500"],
 });
 
-const jetbrainsMono = JetBrains_Mono({
+/** Only the hero's accent phrase uses it: a serif italic from the same family. */
+const plexSerif = IBM_Plex_Serif({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-jetbrains-mono",
+  variable: "--font-plex-serif",
+  weight: ["300"],
+  style: ["italic"],
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-plex-mono",
   weight: ["400", "500"],
 });
 
@@ -87,7 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className={`${newsreader.variable} ${jetbrainsMono.variable} antialiased`}>
+      <body className={`${plexSans.variable} ${plexSerif.variable} ${plexMono.variable} antialiased`}>
         {children}
       </body>
     </html>
