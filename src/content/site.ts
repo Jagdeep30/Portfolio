@@ -14,6 +14,8 @@ export type System = {
   highlights: string[];
   tags: string[];
   href?: string;
+  /** The small diagram shown beside the text when this card is the open one in its row. */
+  visual: "pipeline" | "documents" | "governance" | "services" | "notifications" | "transcode";
 };
 
 export type ToolkitGroup = {
@@ -65,6 +67,7 @@ export const site = {
   systems: [
     {
       name: "LogTrim",
+      visual: "pipeline",
       context: "AZTLAN · 2025",
       summary: "An end-to-end log processing pipeline written in Rust.",
       highlights: [
@@ -76,6 +79,7 @@ export const site = {
     },
     {
       name: "UWS — Document Intelligence",
+      visual: "documents",
       context: "AZTLAN · CLIENT PROJECT",
       summary: "An AI backend that pulls structured data out of identity and financial documents.",
       highlights: [
@@ -86,6 +90,7 @@ export const site = {
     },
     {
       name: "Core V1 — AI Governance",
+      visual: "governance",
       context: "AZTLAN · 2025",
       summary: "A platform for enforcing compliance policy across AI models and datasets.",
       highlights: [
@@ -96,6 +101,7 @@ export const site = {
     },
     {
       name: "Infrastructure & Internal Tooling",
+      visual: "services",
       context: "AZTLAN · ONGOING",
       summary: "The bare-metal that runs the company’s internal services, and everything on it.",
       highlights: [
@@ -106,6 +112,7 @@ export const site = {
     },
     {
       name: "Compensation Tooling",
+      visual: "notifications",
       context: "SEQUOIA · 2024 — 25",
       summary: "Merit-cycle tooling and notification infrastructure for 20+ client teams.",
       highlights: [
@@ -116,6 +123,7 @@ export const site = {
     },
     {
       name: "Adaptive Video Streaming",
+      visual: "transcode",
       context: "PERSONAL · 2024",
       href: "https://github.com/Jagdeep30/adaptive-video-streaming",
       summary: "A pipeline that converts uploaded video into HLS for adaptive bitrate streaming.",
